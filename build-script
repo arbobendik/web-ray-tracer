@@ -1,0 +1,59 @@
+#!/bin/bash
+function minify (
+    set -e
+    cd -- "$1"
+    for file in $(find -name "*.js"); do
+        uglifyjs "$file" -c -m -o "$file"
+        echo minified: "$file"
+    done
+    exit
+)
+
+function bundle (
+    set -e
+    esbuild "$1" --bundle --platform=neutral --loader:.glsl=text --loader:.wgsl=text --outfile="$2"
+    exit
+)
+
+function compile (
+    set -e
+    cd -- "$1"
+    npx tsc
+    exit
+)
+
+# Remove old build
+rm -rf ./public/build
+rm -rf ./tmp
+
+# Copy source to build
+cp -r ./src/ ./tmp
+
+# Bundle flexlight
+bundle ./tmp/flexlight/flexlight.js ./public/build/flexlight/flexlight.js
+# Bundle config-ui
+bundle ./tmp/config-ui/config-ui.js ./public/build/config-ui/config-ui.js
+
+# Compile loader
+compile ./tmp/loader
+
+# Remove build
+rm -rf ./tmp
+
+# bundle ./src/config-ui/config-ui.js ./public/build/config-ui/config-ui.js
+# compile ./src/loader
+
+
+while getopts "m" flag; do
+    case $flag in
+        m)
+        # Minify all js files in build folders.
+        minify ./public/build
+        ;;
+        \?)
+        # Handle invalid options
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+done
+

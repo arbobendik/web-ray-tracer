@@ -1,0 +1,15 @@
+{
+  "name": "flexlight",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Bendik Arbogast",
+  "type": "module",
+  "main": "flexlight.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.52"
+  }
+}

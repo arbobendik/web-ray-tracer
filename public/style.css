@@ -1,0 +1,57 @@
+body {
+	background-color: #181818;
+	color: #fff;
+	font-size: 4vh;
+  font-family: serif;
+	margin: 0;
+}
+
+canvas {
+	image-rendering: pixelated;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+}
+
+div {
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+select {
+	background-color: #909090;
+  font-size: inherit;
+  font-weight: bolder;
+  padding: .7vh;
+  margin: .3vh;
+  border: 0 none;
+  border-radius: 1vh;
+}
+
+label {
+  display: inline-block;
+}
+
+output {
+  display: inline-block;
+}
+
+.slider {
+  width: 70%;
+}
+
+#controlPanel {
+  box-shadow: -10px -10px 25px #5556, 15px 15px 25px #0006;
+  position: fixed;
+  padding: 1vh;
+	left: 3vh;
+	top: 14vh;
+  width: 26vh;
+  word-wrap: break-word;
+  background-color: #c0c0c060;
+  font-size: 2vh;
+  color: #333;
+  backdrop-filter: blur(3vmin);
+  border-radius: 1.5vh;
+}

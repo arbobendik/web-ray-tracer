@@ -1,0 +1,22 @@
+{
+  "name": "loader",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "load-script.ts",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "config-ui": "file:../config-ui",
+    "flexlight": "file:../flexlight"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.52"
+  }
+}
